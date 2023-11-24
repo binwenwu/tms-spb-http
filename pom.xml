@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.14</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>whu.edu.cn</groupId>
+    <artifactId>oge-tms-spb-http</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>oge-tms-spb-http</name>
+    <description>oge-tms-spb-http</description>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <scala.version>2.12.10</scala.version>
+        <scala.compat.version>2.12</scala.compat.version>
+        <geotrellis.version>3.0.0</geotrellis.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+
+
+
+        <!--geotrellis-->
+        <dependency>
+            <groupId>org.locationtech.geotrellis</groupId>
+            <artifactId>geotrellis-layer_${scala.compat.version}</artifactId>
+            <version>${geotrellis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.geotrellis</groupId>
+            <artifactId>geotrellis-spark_${scala.compat.version}</artifactId>
+            <version>${geotrellis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.geotrellis</groupId>
+            <artifactId>geotrellis-raster_${scala.compat.version}</artifactId>
+            <version>${geotrellis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.geotrellis</groupId>
+            <artifactId>geotrellis-store_${scala.compat.version}</artifactId>
+            <version>${geotrellis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.geotrellis</groupId>
+            <artifactId>geotrellis-proj4_${scala.compat.version}</artifactId>
+            <version>${geotrellis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.locationtech.geotrellis</groupId>
+            <artifactId>geotrellis-util_${scala.compat.version}</artifactId>
+            <version>${geotrellis.version}</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Scala插件 -->
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>4.8.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
