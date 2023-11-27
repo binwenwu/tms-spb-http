@@ -31,11 +31,14 @@ class RenenderPNGController {
    * @param zoom 缩放级别
    * @param x x
    * @param y y
+   * @param a 占位符
+   * @param b 占位符
+   * @param c 占位符
    * @return
    */
-  @RequestMapping(value = Array("{layerId}/{zoom}/{x}/{y}.png"), produces = Array(MediaType.IMAGE_PNG_VALUE))
+  @RequestMapping(value = Array("{layerId}/{zoom}/{x}/{y}.png/{a}/{b}/{c}.png"), produces = Array(MediaType.IMAGE_PNG_VALUE))
   @ResponseBody
-  def renderBean(@PathVariable layerId: String, @PathVariable zoom: Int, @PathVariable x: Int, @PathVariable y: Int): Array[Byte] = {
+  def renderBean(@PathVariable layerId: String, @PathVariable zoom: Int, @PathVariable x: Int, @PathVariable y: Int,@PathVariable a: Int, @PathVariable b: Int, @PathVariable c: Int): Array[Byte] = {
 
 //    val outputPath = "/home/ogeStorage/on-the-fly"
     val outputPath = "/Users/tankenqi/Downloads/on-the-fly"
