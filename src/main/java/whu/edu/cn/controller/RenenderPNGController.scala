@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.{PathVariable, RequestMapping, Re
 class RenenderPNGController {
 
 
-  @org.springframework.beans.factory.annotation.Value("${outputPath}")
-  var outputPath: String = _
 
   /** raster transformation to perform at request time */
   def rasterFunction(multibandTile: MultibandTile): MultibandTile = {
@@ -26,21 +24,13 @@ class RenenderPNGController {
   }
 
 
-  /**
-   *
-   *
-   * @param layerId id
-   * @param zoom 缩放级别
-   * @param x x
-   * @param y y
-   * @param a 占位符
-   * @param b 占位符
-   * @param c 占位符
-   * @return
-   */
+
   @RequestMapping(value = Array("{layerId}/{zoom}/{x}/{y}.png/{a}/{b}/{c}.png"), produces = Array(MediaType.IMAGE_PNG_VALUE))
   @ResponseBody
   def renderBean(@PathVariable layerId: String, @PathVariable zoom: Int, @PathVariable x: Int, @PathVariable y: Int,@PathVariable a: Int, @PathVariable b: Int, @PathVariable c: Int): Array[Byte] = {
+
+
+    val outputPath = "/home/ogeStorage/on-the-fly"
 
     val catalogPath = new java.io.File(outputPath).toURI
     // 创建存储区
@@ -84,21 +74,12 @@ class RenenderPNGController {
   }
 
 
-  /**
-   *
-   *
-   * @param layerId id
-   * @param zoom    缩放级别
-   * @param x       x
-   * @param y       y
-   * @param a       占位符
-   * @param b       占位符
-   * @param c       占位符
-   * @return
-   */
   @RequestMapping(value = Array("{layerId}/{zoom}/{x}/{y}.png"), produces = Array(MediaType.IMAGE_PNG_VALUE))
   @ResponseBody
   def renderBean_(@PathVariable layerId: String, @PathVariable zoom: Int, @PathVariable x: Int, @PathVariable y: Int): Array[Byte] = {
+
+
+    val outputPath = "/home/ogeStorage/on-the-fly"
 
     val catalogPath = new java.io.File(outputPath).toURI
     // 创建存储区
