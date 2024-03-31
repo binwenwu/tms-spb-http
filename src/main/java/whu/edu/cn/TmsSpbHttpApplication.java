@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class OgeTmsSpbHttpApplication {
+public class TmsSpbHttpApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OgeTmsSpbHttpApplication.class, args);
+        SpringApplication.run(TmsSpbHttpApplication.class, args);
     }
 
 }
